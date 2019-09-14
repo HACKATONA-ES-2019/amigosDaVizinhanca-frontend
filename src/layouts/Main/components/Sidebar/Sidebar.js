@@ -46,43 +46,63 @@ const Sidebar = props => {
     {
       title: 'Dashboard',
       href: '/dashboard',
-      icon: <DashboardIcon />
+      icon: 'dashboard'
     },
     {
-      title: 'Users',
-      href: '/users',
-      icon: <PeopleIcon />
+      title: 'Desastres',
+      href: '/desastres',
+      icon: 'disasters'
     },
     {
-      title: 'Products',
-      href: '/products',
-      icon: <ShoppingBasketIcon />
+      title: 'Planos',
+      href: '/plans',
+      icon: 'plans'
     },
     {
-      title: 'Authentication',
-      href: '/sign-in',
-      icon: <LockOpenIcon />
+      title: 'Mapa',
+      href: '/maps',
+      icon: 'brazil'
     },
     {
-      title: 'Typography',
-      href: '/typography',
-      icon: <TextFieldsIcon />
-    },
-    {
-      title: 'Icons',
-      href: '/icons',
-      icon: <ImageIcon />
-    },
-    {
-      title: 'Account',
-      href: '/account',
-      icon: <AccountBoxIcon />
-    },
-    {
-      title: 'Settings',
+      title: 'Configurações',
       href: '/settings',
-      icon: <SettingsIcon />
-    }
+      icon: 'settings'
+    },
+    // {
+    //   title: 'Users',
+    //   href: '/users',
+    //   icon: <PeopleIcon />
+    // },
+    // {
+    //   title: 'Products',
+    //   href: '/products',
+    //   icon: <ShoppingBasketIcon />
+    // },
+    // {
+    //   title: 'Authentication',
+    //   href: '/sign-in',
+    //   icon: <LockOpenIcon />
+    // },
+    // {
+    //   title: 'Typography',
+    //   href: '/typography',
+    //   icon: <TextFieldsIcon />
+    // },
+    // {
+    //   title: 'Icons',
+    //   href: '/icons',
+    //   icon: <ImageIcon />
+    // },
+    // {
+    //   title: 'Account',
+    //   href: '/account',
+    //   icon: <AccountBoxIcon />
+    // },
+    // {
+    //   title: 'Settings',
+    //   href: '/settings',
+    //   icon: <SettingsIcon />
+    // }
   ];
 
   return (

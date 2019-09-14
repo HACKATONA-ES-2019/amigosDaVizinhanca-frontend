@@ -16,7 +16,7 @@ const useStyles = makeStyles(theme => ({
   },
   button: {
     color: colors.blueGrey[800],
-    padding: '10px 8px',
+    padding: '16px 8px',
     justifyContent: 'flex-start',
     textTransform: 'none',
     letterSpacing: 0,
@@ -25,11 +25,10 @@ const useStyles = makeStyles(theme => ({
   },
   icon: {
     color: theme.palette.icon,
-    width: 24,
-    height: 24,
+    fontSize: 24,
     display: 'flex',
     alignItems: 'center',
-    marginRight: theme.spacing(1)
+    marginRight: theme.spacing(3),
   },
   active: {
     color: theme.palette.primary.main,
@@ -71,7 +70,7 @@ const SidebarNav = props => {
             component={CustomRouterLink}
             to={page.href}
           >
-            <div className={classes.icon}>{page.icon}</div>
+            <i className={`${classes.icon} ppd-${page.icon}`}></i>
             {page.title}
           </Button>
         </ListItem>

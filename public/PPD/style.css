@@ -1,0 +1,42 @@
+@font-face {
+  font-family: 'ppd';
+  src:  url('fonts/ppd.eot?12lz3p');
+  src:  url('fonts/ppd.eot?12lz3p#iefix') format('embedded-opentype'),
+    url('fonts/ppd.ttf?12lz3p') format('truetype'),
+    url('fonts/ppd.woff?12lz3p') format('woff'),
+    url('fonts/ppd.svg?12lz3p#ppd') format('svg');
+  font-weight: normal;
+  font-style: normal;
+  font-display: block;
+}
+
+[class^="ppd-"], [class*=" ppd-"] {
+  /* use !important to prevent issues with browser extensions that change fonts */
+  font-family: 'ppd' !important;
+  speak: none;
+  font-style: normal;
+  font-weight: normal;
+  font-variant: normal;
+  text-transform: none;
+  line-height: 1;
+
+  /* Better Font Rendering =========== */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.ppd-disasters:before {
+  content: "\e904";
+}
+.ppd-brazil:before {
+  content: "\e900";
+}
+.ppd-settings:before {
+  content: "\e901";
+}
+.ppd-plans:before {
+  content: "\e902";
+}
+.ppd-dashboard:before {
+  content: "\e903";
+}
