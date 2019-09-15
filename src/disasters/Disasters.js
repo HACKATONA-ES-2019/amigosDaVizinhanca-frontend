@@ -183,7 +183,7 @@ class Disasters extends Component {
                 <Card>
                   <CardContent>
                     <img src={`/images/disasters/${desastre.imagem}.png`} alt={desastre.nome}/>
-                    <Typography className={classes.buttonLabel} variant="h4">{desastre.nome}</Typography>
+                    <a href="/plans"><Typography className={classes.buttonLabel} variant="h4">{desastre.nome}</Typography></a>
                   </CardContent>
                 </Card>
               </Grid>
