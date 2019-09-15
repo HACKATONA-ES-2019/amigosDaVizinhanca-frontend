@@ -18,6 +18,11 @@ import {
   ChartsPAHO as ChartsPAHOView
 } from './views';
 
+import Disasters from './pages/Disasters';
+import Plans from './pages/Plans';
+import Map from './pages/Map';
+import Settings from './pages/Settings';
+
 const Routes = () => {
   return (
     <Switch>
@@ -25,6 +30,26 @@ const Routes = () => {
         exact
         from="/"
         to="/dashboard"
+      />
+      <RouteWithLayout
+        exact path="/disasters"
+        layout={MainLayout}
+        component={Disasters}
+      />
+      <RouteWithLayout
+        exact path="/plans"
+        layout={MainLayout}
+        component={Plans}
+      />
+      <RouteWithLayout
+        exact path="/map"
+        layout={MainLayout}
+        component={Map}
+      />
+      <RouteWithLayout
+        exact path="/settings"
+        layout={MainLayout}
+        component={Settings}
       />
       <RouteWithLayout
         component={DashboardView}
