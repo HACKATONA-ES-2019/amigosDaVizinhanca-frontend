@@ -10,7 +10,7 @@ import {
   Avatar,
   LinearProgress
 } from '@material-ui/core';
-import InsertChartIcon from '@material-ui/icons/InsertChartOutlined';
+import ChildCareIcon from '@material-ui/icons/ChildCareOutlined';
 
 const useStyles = makeStyles(theme => ({
   root: {
@@ -60,19 +60,19 @@ const TasksProgress = props => {
               gutterBottom
               variant="body2"
             >
-              TASKS PROGRESS
+              DESASTRES PREVENIDOS
             </Typography>
-            <Typography variant="h3">75.5%</Typography>
+            <Typography variant="h3">42,9%</Typography>
           </Grid>
           <Grid item>
             <Avatar className={classes.avatar}>
-              <InsertChartIcon className={classes.icon} />
+              <ChildCareIcon className={classes.icon} />
             </Avatar>
           </Grid>
         </Grid>
         <LinearProgress
           className={classes.progress}
-          value={75.5}
+          value={42.9}
           variant="determinate"
         />
       </CardContent>

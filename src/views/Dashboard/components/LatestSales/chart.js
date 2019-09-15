@@ -1,17 +1,17 @@
 import palette from 'theme/palette';
 
 export const data = {
-  labels: ['1 Aug', '2 Aug', '3 Aug', '4 Aug', '5 Aug', '6 Aug'],
+  labels: ['Epidemias', 'Incêndios', 'Inundações'],
   datasets: [
     {
-      label: 'This year',
+      label: '2019',
       backgroundColor: palette.primary.main,
-      data: [18, 5, 19, 27, 29, 19, 20]
+      data: [1867, 5059, 1930]
     },
     {
-      label: 'Last year',
+      label: '2018',
       backgroundColor: palette.neutral,
-      data: [11, 20, 12, 29, 30, 25, 13]
+      data: [1135, 2457, 1299]
     }
   ]
 };

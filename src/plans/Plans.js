@@ -30,9 +30,9 @@ const months = [
 ];
 
 const plans = [
-  {nome: 'Combate à água parada', image: 'ink'},
-  {nome: 'Vacinas', image: 'medicine'},
-  {nome: 'Medicamentos', image: 'syringe'},
+  {nome: 'Combate à água parada', image: 'ink', i: 47, m: 580, p: 8, a: 'ações'},
+  {nome: 'Vacinas', image: 'syringe', i: 32, m: 43, p: 74, a: 'mil'},
+  {nome: 'Medicamentos', image: 'medicine', i: 89, m: 112, p: 79, a: 'mil'},
 
 ];
 
@@ -153,7 +153,10 @@ class Plans extends Component {
                 <Card>
                   <CardContent>
                     <img src={`/images/plan/${plan.image}.png`} alt={plan.nome}/>
-                    <a href="/plans"><Typography className={classes.buttonLabel} variant="h4">{plan.nome}</Typography></a>
+                    <Typography className={classes.buttonLabel} variant="h4">{plan.nome}</Typography>
+                    <Typography variant="h5">{`${plan.i} de ${plan.m} ${plan.a}`}</Typography>
+                    <br/>
+                    <Typography variant="h4">{`${plan.p}%`}</Typography>
                   </CardContent>
                 </Card>
               </Grid>
