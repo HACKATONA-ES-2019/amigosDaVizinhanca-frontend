@@ -20,6 +20,20 @@ export function selectedRegion(region){
     }
 }
 
+export function selectedMonth(mes) {
+    return {
+        type: 'MES_FETCHED',
+        payload: mes
+    }
+}
+
+export function selectedYear(ano) {
+    return {
+        type: 'ANO_FETCHED',
+        payload: ano
+    }
+}
+
 export function getList() {
     return dispatch => {
         const request = axios.get(`http://localhost:3001/listaDesastres`)
