@@ -17,6 +17,11 @@ import {
   NotFound as NotFoundView
 } from './views';
 
+import Disasters from './pages/Disasters';
+import Plans from './pages/Plans';
+import Map from './pages/Map';
+import Settings from './pages/Settings';
+
 const Routes = () => {
   return (
     <Switch>
@@ -28,22 +33,22 @@ const Routes = () => {
       <RouteWithLayout
         exact path="/disasters"
         layout={MainLayout}
-        component={UserListView}
+        component={Disasters}
       />
       <RouteWithLayout
         exact path="/plans"
         layout={MainLayout}
-        component={UserListView}
+        component={Plans}
       />
       <RouteWithLayout
         exact path="/map"
         layout={MainLayout}
-        component={UserListView}
+        component={Map}
       />
       <RouteWithLayout
         exact path="/settings"
         layout={MainLayout}
-        component={UserListView}
+        component={Settings}
       />
       <RouteWithLayout
         component={DashboardView}
