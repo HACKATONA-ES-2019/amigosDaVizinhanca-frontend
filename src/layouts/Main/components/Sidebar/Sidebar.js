@@ -50,7 +50,7 @@ const Sidebar = props => {
     },
     {
       title: 'Desastres',
-      href: '/desastres',
+      href: '/disasters',
       icon: 'disasters'
     },
     {
@@ -60,7 +60,7 @@ const Sidebar = props => {
     },
     {
       title: 'Mapa',
-      href: '/maps',
+      href: '/map',
       icon: 'brazil'
     },
     {

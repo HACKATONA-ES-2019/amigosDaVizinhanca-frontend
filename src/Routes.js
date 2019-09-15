@@ -26,6 +26,26 @@ const Routes = () => {
         to="/dashboard"
       />
       <RouteWithLayout
+        exact path="/disasters"
+        layout={MainLayout}
+        component={UserListView}
+      />
+      <RouteWithLayout
+        exact path="/plans"
+        layout={MainLayout}
+        component={UserListView}
+      />
+      <RouteWithLayout
+        exact path="/map"
+        layout={MainLayout}
+        component={UserListView}
+      />
+      <RouteWithLayout
+        exact path="/settings"
+        layout={MainLayout}
+        component={UserListView}
+      />
+      <RouteWithLayout
         component={DashboardView}
         exact
         layout={MainLayout}
