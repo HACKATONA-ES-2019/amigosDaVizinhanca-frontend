@@ -1,5 +1,9 @@
 import React, {Component} from 'react';
 
+import Card from '@material-ui/core/Card';
+import CardContent from '@material-ui/core/CardContent';
+import Typography from '@material-ui/core/Typography';
+import Grid from '@material-ui/core/Grid';
 import FormControl from '@material-ui/core/FormControl';
 import InputLabel from '@material-ui/core/InputLabel';
 import Select from '@material-ui/core/Select';
@@ -42,13 +46,24 @@ const estadosBR = [
   {sigla: "TO", nome: "Tocantins"},
 ];
 
+const months = ['Jan', 'Fev', 'Mar', 'Abr', 'Mai', 'Jun', 'Jul', 'Ago', 'Set', 'Out', 'Nov', 'Dez'];
+const years = [2009, 2010, 2011, 2012, 2013, 2014, 2015, 2016, 2017, 2018, 2019];
+
 const styles = (theme) => ({
   root: {
     padding: theme.spacing(4)
   },
   formControl: {
-    margin: theme.spacing(1),
+    fullWidth: true,
+    display: 'flex',
+    wrap: 'nowrap'
   },
+  card: {
+    marginTop: theme.spacing(4),
+  },
+  header: {
+    marginBottom: theme.spacing(1),
+  }
 });
 
 class Disasters extends Component {
@@ -57,9 +72,8 @@ class Disasters extends Component {
     this.props.initDisaster()
   }
 
-  handleChange(e) {
-    console.log(e.target.value)
-    // this.props.selectedRegion(region);
+  handleChange(event) {
+    this.props.selectedRegion(event.target.value);
   }
   
   render() {
@@ -67,36 +81,64 @@ class Disasters extends Component {
 
     return (
       <div className={classes.root}>
-        <FormControl variant="outlined" className={classes.formControl}>
-        <InputLabel htmlFor="region">Região</InputLabel>
-        <Select
-          // value={values.age}
-          onChange={(e) => this.handleChange(e)}
-          input={<OutlinedInput labelWidth={200} name="age" id="outlined-age-simple" />}
-        >
-          <MenuItem value="">
-            <em>None</em>
-          </MenuItem>
-          <MenuItem value={10}>Ten</MenuItem>
-          <MenuItem value={20}>Twenty</MenuItem>
-          <MenuItem value={30}>Thirty</MenuItem>
-        </Select>
-      </FormControl>
-        {/* <FormControl variant="outlined" className={classes.formControl}>
-        <InputLabel htmlFor="region">
-          Age
-        </InputLabel>
-        <Select
-          // onChange={handleChange('age')}
-          // labelWidth={labelWidth}
-          inputProps={{
-            name: 'region',
-            id: 'region',
-          }}
-        >
-          {estadosBR.map(estado => <option value={estado.sigla}>{estado.nome}</option>)}
-        </Select>
-      </FormControl> */}
+        <Card>
+          <CardContent>
+            <Typography variant="h2" className={classes.header}>Desastres</Typography>
+            <Typography variant="subtitle2">Selecione uma região, um mês, um ano e um tipo de desastre para mais informações.</Typography>
+          </CardContent>
+        </Card>
+        <Card className={classes.card}>
+          <CardContent>
+            <Typography variant="h4" className={classes.header}>Filtros</Typography>
+            <Grid container spacing={4}>
+              <Grid item xs={8}>
+                <FormControl variant="outlined" className={classes.formControl}>
+                  <InputLabel htmlFor="region">Região</InputLabel>
+                  <Select
+                    // value={values.age}
+                    onChange={(event) => this.handleChange(event)}
+                    input={<OutlinedInput name="region" id="region" />}
+                  >
+                    <MenuItem value="">
+                      <em>None</em>
+                    </MenuItem>
+                    {estadosBR.map(estado => <MenuItem value={estado.sigla}>{estado.nome}</MenuItem>)}
+                  </Select>
+                </FormControl>
+              </Grid>
+              <Grid item xs={2}>
+                <FormControl variant="outlined" className={classes.formControl}>
+                  <InputLabel htmlFor="month">Mês</InputLabel>
+                  <Select
+                    // value={values.age}
+                    onChange={(event) => this.handleChange(event)}
+                    input={<OutlinedInput name="mes" id="mes" />}
+                  >
+                    <MenuItem value="">
+                      <em>None</em>
+                    </MenuItem>
+                    {months.map(month => <MenuItem value={month}>{month}</MenuItem>)}
+                  </Select>
+                </FormControl>
+              </Grid>
+              <Grid item xs={2}>
+                <FormControl variant="outlined" className={classes.formControl}>
+                  <InputLabel htmlFor="year">Ano</InputLabel>
+                  <Select
+                    // value={values.age}
+                    onChange={(event) => this.handleChange(event)}
+                    input={<OutlinedInput name="year" id="year" />}
+                  >
+                    <MenuItem value="">
+                      <em>None</em>
+                    </MenuItem>
+                    {years.map(year => <MenuItem value={year}>{year}</MenuItem>)}
+                  </Select>
+                </FormControl>
+              </Grid>
+            </Grid>
+          </CardContent>
+        </Card>
       </div>
     );
   }
