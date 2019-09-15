@@ -3,10 +3,11 @@ import React, {Component} from 'react';
 import FormControl from '@material-ui/core/FormControl';
 import InputLabel from '@material-ui/core/InputLabel';
 import Select from '@material-ui/core/Select';
+import MenuItem from '@material-ui/core/MenuItem';
 import OutlinedInput from '@material-ui/core/OutlinedInput';
 import { withStyles } from '@material-ui/styles';
 
-import { initDisaster } from './DisasterActions';
+import { initDisaster, selectedRegion } from './DisasterActions';
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
 
@@ -56,8 +57,9 @@ class Disasters extends Component {
     this.props.initDisaster()
   }
 
-  handleChange(region) {
-
+  handleChange(e) {
+    console.log(e.target.value)
+    // this.props.selectedRegion(region);
   }
   
   render() {
@@ -67,10 +69,10 @@ class Disasters extends Component {
       <div className={classes.root}>
         <FormControl variant="outlined" className={classes.formControl}>
         <InputLabel htmlFor="region">Região</InputLabel>
-        {/* <Select
+        <Select
           // value={values.age}
-          // onChange={handleChange}
-          input={<OutlinedInput labelWidth={labelWidth} name="age" id="outlined-age-simple" />}
+          onChange={(e) => this.handleChange(e)}
+          input={<OutlinedInput labelWidth={200} name="age" id="outlined-age-simple" />}
         >
           <MenuItem value="">
             <em>None</em>
@@ -78,9 +80,9 @@ class Disasters extends Component {
           <MenuItem value={10}>Ten</MenuItem>
           <MenuItem value={20}>Twenty</MenuItem>
           <MenuItem value={30}>Thirty</MenuItem>
-        </Select> */}
+        </Select>
       </FormControl>
-        <FormControl variant="outlined" className={classes.formControl}>
+        {/* <FormControl variant="outlined" className={classes.formControl}>
         <InputLabel htmlFor="region">
           Age
         </InputLabel>
@@ -94,7 +96,7 @@ class Disasters extends Component {
         >
           {estadosBR.map(estado => <option value={estado.sigla}>{estado.nome}</option>)}
         </Select>
-      </FormControl>
+      </FormControl> */}
       </div>
     );
   }
@@ -102,7 +104,7 @@ class Disasters extends Component {
   
 }
 const mapDispatchToProps = dispatch => bindActionCreators({
-  initDisaster
+  initDisaster, selectedRegion
 }, dispatch)
 const mapStateToProps = state => ({
   disaster: state.disaster.data

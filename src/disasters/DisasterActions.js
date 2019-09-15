@@ -13,6 +13,13 @@ export function initDisaster() {
     ]
 }
 
+export function selectedRegion(region){
+    return {
+        type: 'REGION_FETCHED',
+        payload: region
+    }
+}
+
 export function getList() {
     return dispatch => {
         const request = axios.get(`http://localhost:3001/listaDesastres`)
