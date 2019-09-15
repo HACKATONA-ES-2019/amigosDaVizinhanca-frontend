@@ -1,5 +1,10 @@
 import React from 'react';
+import Typography from '@material-ui/core/Typography';
+import Card from '@material-ui/core/Card';
+import CardContent from '@material-ui/core/CardContent';
 import { makeStyles } from '@material-ui/styles';
+
+import BrazilMap from '../components/BrazilMap/BrazilMap';
 
 const useStyles = makeStyles(theme => ({
   root: {
@@ -12,7 +17,13 @@ const Map = () => {
 
   return (
     <div className={classes.root}>
-      <h1>Mapa</h1>
+      <Card>
+        <CardContent>
+          <Typography variant="h2">Mapa</Typography>
+          <Typography variant="subtitle2">Selecione um estado brasileiro para exibir os desastres ocorridos em um determinado período.</Typography>
+        </CardContent>
+      </Card>
+      <BrazilMap />
     </div>
   );
 };
