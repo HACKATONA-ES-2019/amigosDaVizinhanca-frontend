@@ -46,8 +46,30 @@ const estadosBR = [
   {sigla: "TO", nome: "Tocantins"},
 ];
 
-const months = ['Jan', 'Fev', 'Mar', 'Abr', 'Mai', 'Jun', 'Jul', 'Ago', 'Set', 'Out', 'Nov', 'Dez'];
+const months = [
+  {num: 1, nome: 'Janeiro'},
+  {num: 2, nome: 'Fevereiro'},
+  {num: 3, nome: 'Março'},
+  {num: 4, nome: 'Abril'},
+  {num: 5, nome: 'Maio'},
+  {num: 6, nome: 'Junho'},
+  {num: 7, nome: 'Julho'},
+  {num: 8, nome: 'Agosto'},
+  {num: 9, nome: 'Setembro'},
+  {num: 10, nome: 'Outubro'},
+  {num: 11, nome: 'Novembro'},
+  {num: 12, nome: 'Dezembro'},
+];
 const years = [2009, 2010, 2011, 2012, 2013, 2014, 2015, 2016, 2017, 2018, 2019];
+
+const disasters = [
+  {nome: 'Epidemias', imagem: 'virus'},
+  {nome: 'Incêndios', imagem: 'fire'},
+  {nome: 'Inundações', imagem: 'wave'},
+  {nome: 'Terremotos', imagem: 'crack'},
+  {nome: 'Tornados', imagem: 'tornado'},
+  {nome: 'Deslizamentos', imagem: 'landslide'},
+];
 
 const styles = (theme) => ({
   root: {
@@ -63,6 +85,13 @@ const styles = (theme) => ({
   },
   header: {
     marginBottom: theme.spacing(1),
+  },
+  button: {
+    textAlign: 'center',
+    cursor: 'pointer',
+  },
+  buttonLabel: {
+    marginTop: theme.spacing(1),
   }
 });
 
@@ -91,7 +120,7 @@ class Disasters extends Component {
           <CardContent>
             <Typography variant="h4" className={classes.header}>Filtros</Typography>
             <Grid container spacing={4}>
-              <Grid item xs={8}>
+              <Grid item xs={12} xl={6} sm={8}>
                 <FormControl variant="outlined" className={classes.formControl}>
                   <InputLabel htmlFor="region">Região</InputLabel>
                   <Select
@@ -106,7 +135,7 @@ class Disasters extends Component {
                   </Select>
                 </FormControl>
               </Grid>
-              <Grid item xs={2}>
+              <Grid item xs={12} xl={3} sm={2}>
                 <FormControl variant="outlined" className={classes.formControl}>
                   <InputLabel htmlFor="month">Mês</InputLabel>
                   <Select
@@ -117,11 +146,11 @@ class Disasters extends Component {
                     <MenuItem value="">
                       <em>None</em>
                     </MenuItem>
-                    {months.map(month => <MenuItem value={month}>{month}</MenuItem>)}
+                    {months.map(month => <MenuItem value={month.num}>{month.nome}</MenuItem>)}
                   </Select>
                 </FormControl>
               </Grid>
-              <Grid item xs={2}>
+              <Grid item xs={12} xl={3} sm={2}>
                 <FormControl variant="outlined" className={classes.formControl}>
                   <InputLabel htmlFor="year">Ano</InputLabel>
                   <Select
@@ -139,10 +168,23 @@ class Disasters extends Component {
             </Grid>
           </CardContent>
         </Card>
+        <Grid container spacing={4} className={classes.card}>
+          {disasters.map(desastre => {
+            return (
+              <Grid item xs={12} xl={6} sm={4} md={3} className={classes.button}>
+                <Card>
+                  <CardContent>
+                    <img src={`/images/disasters/${desastre.imagem}.png`} alt={desastre.nome}/>
+                    <Typography className={classes.buttonLabel} variant="h4">{desastre.nome}</Typography>
+                  </CardContent>
+                </Card>
+              </Grid>
+            );
+          })}
+        </Grid>
       </div>
     );
   }
-
   
 }
 const mapDispatchToProps = dispatch => bindActionCreators({
