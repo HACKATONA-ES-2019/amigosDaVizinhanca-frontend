@@ -18,10 +18,10 @@ import {
   ChartsPAHO as ChartsPAHOView
 } from './views';
 
-import Disasters from './pages/Disasters';
-import Plans from './pages/Plans';
-import Map from './pages/Map';
-import Settings from './pages/Settings';
+import Disasters from './disaster/Disasters';
+import Plans from './plans/Plans';
+import Map from './map/Map';
+import Settings from './settings/Settings';
 
 const Routes = () => {
   return (
