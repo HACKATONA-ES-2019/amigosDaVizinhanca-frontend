@@ -52,13 +52,13 @@ const TotalProfit = props => {
               gutterBottom
               variant="body2"
             >
-              TOTAL PROFIT
+              ECONOMIA 2019
             </Typography>
             <Typography
               color="inherit"
               variant="h3"
             >
-              $23,200
+              R$ 1.090.456,86
             </Typography>
           </Grid>
           <Grid item>

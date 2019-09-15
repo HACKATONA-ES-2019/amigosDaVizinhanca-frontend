@@ -30,6 +30,13 @@ const months = [
   {num: 12, nome: 'Dezembro'},
 ];
 
+const plans = [
+  {nome: 'Combate à água parada', image: 'ink', i: 47, m: 580, p: 8, a: 'ações'},
+  {nome: 'Vacinas', image: 'syringe', i: 32, m: 43, p: 74, a: 'mil'},
+  {nome: 'Medicamentos', image: 'medicine', i: 89, m: 112, p: 79, a: 'mil'},
+
+];
+
 const years = [2009, 2010, 2011, 2012, 2013, 2014, 2015, 2016, 2017, 2018, 2019];
 
 const subs = ['Zika', 'Chikungunya', 'Dengue']; 
@@ -143,6 +150,23 @@ class Plans extends Component {
             <p><h4>Probabilidade de um desastre: {Math.round(this.output * 100, 2)}%</h4></p>
           </CardContent>
         </Card>
+        <Grid container spacing={4} className={classes.card}>
+          {plans.map(plan => {
+            return (
+              <Grid item xs={12} xl={6} sm={4} md={3} className={classes.button}>
+                <Card>
+                  <CardContent>
+                    <img src={`/images/plan/${plan.image}.png`} alt={plan.nome}/>
+                    <Typography className={classes.buttonLabel} variant="h4">{plan.nome}</Typography>
+                    <Typography variant="h5">{`${plan.i} de ${plan.m} ${plan.a}`}</Typography>
+                    <br/>
+                    <Typography variant="h4">{`${plan.p}%`}</Typography>
+                  </CardContent>
+                </Card>
+              </Grid>
+            );
+          })}
+        </Grid>
       </div>
     );
   }
