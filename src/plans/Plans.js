@@ -29,6 +29,13 @@ const months = [
   {num: 12, nome: 'Dezembro'},
 ];
 
+const plans = [
+  {nome: 'Combate à água parada', image: 'ink'},
+  {nome: 'Vacinas', image: 'medicine'},
+  {nome: 'Medicamentos', image: 'syringe'},
+
+];
+
 const years = [2009, 2010, 2011, 2012, 2013, 2014, 2015, 2016, 2017, 2018, 2019];
 
 const subs = ['Zika', 'Chikungunya', 'Dengue'];
@@ -139,6 +146,20 @@ class Plans extends Component {
 
           </CardContent>
         </Card>
+        <Grid container spacing={4} className={classes.card}>
+          {plans.map(plan => {
+            return (
+              <Grid item xs={12} xl={6} sm={4} md={3} className={classes.button}>
+                <Card>
+                  <CardContent>
+                    <img src={`/images/plan/${plan.image}.png`} alt={plan.nome}/>
+                    <a href="/plans"><Typography className={classes.buttonLabel} variant="h4">{plan.nome}</Typography></a>
+                  </CardContent>
+                </Card>
+              </Grid>
+            );
+          })}
+        </Grid>
       </div>
     );
   }
