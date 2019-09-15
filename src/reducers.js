@@ -1,5 +1,5 @@
 import { combineReducers } from 'redux'
-import DisasterReducer from './disaster/DisasterReducer'
+import DisasterReducer from './disasters/DisasterReducer'
 
 const rootReducer = combineReducers({
     disaster : DisasterReducer
