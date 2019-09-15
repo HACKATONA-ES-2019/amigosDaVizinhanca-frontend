@@ -1,4 +1,4 @@
-const INITIAL_STATE = { data: [], selectedRegion: '' }
+const INITIAL_STATE = { data: [], selectedRegion: '', selectedMes:'', selectedAno: '' }
 
 export default (state = INITIAL_STATE, action) => {
 
@@ -6,8 +6,11 @@ export default (state = INITIAL_STATE, action) => {
         case 'DISASTER_FETCHED':
             return { ...state, data: action.payload.data}
         case 'REGION_FETCHED':
-            console.log(action.payload)
             return { ...state, selectedRegion: action.payload.region }
+        case 'MES_FETCHED':
+            return { ...state, selectedMes: action.payload.mes }
+        case 'ANO_FETCHED':
+            return { ...state, selectedAno: action.payload.ano }
         default:
             return state
     }

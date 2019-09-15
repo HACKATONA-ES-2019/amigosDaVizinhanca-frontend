@@ -11,7 +11,7 @@ import MenuItem from '@material-ui/core/MenuItem';
 import OutlinedInput from '@material-ui/core/OutlinedInput';
 import { withStyles } from '@material-ui/styles';
 
-import { initDisaster, selectedRegion } from './DisasterActions';
+import { initDisaster, selectedRegion, selectedYear, selectedMonth } from './DisasterActions';
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
 
@@ -72,8 +72,16 @@ class Disasters extends Component {
     this.props.initDisaster()
   }
 
-  handleChange(event) {
+  handleChangeMonth(event) {
     this.props.selectedRegion(event.target.value);
+  }
+
+  handleChangeYear(event) {
+    this.props.selectedYear(event.target.value);
+  }
+
+  handleChangeRegion(event){
+    this.props.selectedMonth(event.target.value)
   }
   
   render() {
@@ -96,7 +104,7 @@ class Disasters extends Component {
                   <InputLabel htmlFor="region">Região</InputLabel>
                   <Select
                     // value={values.age}
-                    onChange={(event) => this.handleChange(event)}
+                    onChange={(event) => this.handleChangeRegion(event)}
                     input={<OutlinedInput name="region" id="region" />}
                   >
                     <MenuItem value="">
@@ -111,7 +119,7 @@ class Disasters extends Component {
                   <InputLabel htmlFor="month">Mês</InputLabel>
                   <Select
                     // value={values.age}
-                    onChange={(event) => this.handleChange(event)}
+                    onChange={(event) => this.handleChangeMonth(event)}
                     input={<OutlinedInput name="mes" id="mes" />}
                   >
                     <MenuItem value="">
@@ -126,7 +134,7 @@ class Disasters extends Component {
                   <InputLabel htmlFor="year">Ano</InputLabel>
                   <Select
                     // value={values.age}
-                    onChange={(event) => this.handleChange(event)}
+                    onChange={(event) => this.handleChangeYear(event)}
                     input={<OutlinedInput name="year" id="year" />}
                   >
                     <MenuItem value="">
@@ -146,7 +154,7 @@ class Disasters extends Component {
   
 }
 const mapDispatchToProps = dispatch => bindActionCreators({
-  initDisaster, selectedRegion
+  initDisaster, selectedRegion, selectedYear, selectedMonth
 }, dispatch)
 const mapStateToProps = state => ({
   disaster: state.disaster.data
