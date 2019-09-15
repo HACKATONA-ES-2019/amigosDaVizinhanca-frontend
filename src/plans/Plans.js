@@ -11,6 +11,7 @@ import CardContent from '@material-ui/core/CardContent';
 import { withStyles } from '@material-ui/styles';
 
 import { selectedRegion, selectedYear, selectedMonth } from '../disasters/DisasterActions';
+import { getList } from '../plans/PlansActions'
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
 
@@ -31,8 +32,7 @@ const months = [
 
 const years = [2009, 2010, 2011, 2012, 2013, 2014, 2015, 2016, 2017, 2018, 2019];
 
-const subs = ['Zika', 'Chikungunya', 'Dengue'];
-
+const subs = ['Zika', 'Chikungunya', 'Dengue']; 
 const styles = (theme) => ({
   root: {
     padding: theme.spacing(4)
@@ -58,6 +58,10 @@ const styles = (theme) => ({
 });
 
 class Plans extends Component {
+
+  componentWillMount(){
+    this.props.getList(this.props.month)
+  }
 
   handleChangeMonth(event) {
     this.props.selectedMonth(event.target.value);
@@ -136,19 +140,24 @@ class Plans extends Component {
         </Card>
         <Card className={classes.card}>
           <CardContent>
-
+            <p><h4>Probabilidade de um desastre: {Math.round(this.output * 100, 2)}%</h4></p>
           </CardContent>
         </Card>
       </div>
     );
   }
+
+  get output(){
+    return this.props.prob.output ? this.props.prob.output[0] : 0
+  }
 };
 
 const mapDispatchToProps = dispatch => bindActionCreators({
-  selectedRegion, selectedYear, selectedMonth
+  selectedRegion, selectedYear, selectedMonth, getList
 }, dispatch)
 const mapStateToProps = state => ({
   disaster: state.disaster.data,
+  prob: state.plans.data,
   year: state.disaster.selectedAno,
   month: state.disaster.selectedMes,
   region: state.disaster.selectedRegion,
