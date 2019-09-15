@@ -102,7 +102,7 @@ class Disasters extends Component {
   }
 
   handleChangeMonth(event) {
-    this.props.selectedRegion(event.target.value);
+    this.props.selectedMonth(event.target.value);
   }
 
   handleChangeYear(event) {
@@ -110,7 +110,7 @@ class Disasters extends Component {
   }
 
   handleChangeRegion(event){
-    this.props.selectedMonth(event.target.value)
+    this.props.selectedRegion(event.target.value)
   }
   
   render() {
@@ -132,7 +132,7 @@ class Disasters extends Component {
                 <FormControl variant="outlined" className={classes.formControl}>
                   <InputLabel htmlFor="region">Região</InputLabel>
                   <Select
-                    // value={values.age}
+                    value={this.props.region}
                     onChange={(event) => this.handleChangeRegion(event)}
                     input={<OutlinedInput name="region" id="region" />}
                   >
@@ -147,7 +147,7 @@ class Disasters extends Component {
                 <FormControl variant="outlined" className={classes.formControl}>
                   <InputLabel htmlFor="month">Mês</InputLabel>
                   <Select
-                    // value={values.age}
+                    value={this.props.month}
                     onChange={(event) => this.handleChangeMonth(event)}
                     input={<OutlinedInput name="mes" id="mes" />}
                   >
@@ -162,7 +162,7 @@ class Disasters extends Component {
                 <FormControl variant="outlined" className={classes.formControl}>
                   <InputLabel htmlFor="year">Ano</InputLabel>
                   <Select
-                    // value={values.age}
+                    value={this.props.year}
                     onChange={(event) => this.handleChangeYear(event)}
                     input={<OutlinedInput name="year" id="year" />}
                   >
@@ -199,6 +199,9 @@ const mapDispatchToProps = dispatch => bindActionCreators({
   initDisaster, selectedRegion, selectedYear, selectedMonth
 }, dispatch)
 const mapStateToProps = state => ({
-  disaster: state.disaster.data
+  disaster: state.disaster.data,
+  year: state.disaster.selectedAno,
+  month: state.disaster.selectedMes,
+  region: state.disaster.selectedRegion,
 })
 export default connect(mapStateToProps, mapDispatchToProps)(withStyles(styles)(Disasters));
